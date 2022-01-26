@@ -1,18 +1,17 @@
-const sumAll = function(...sumRange) {
+const sumAll = (...sumRange) => {
     let sum = 0;
     let min = Math.min(...sumRange);
     let max = Math.max(...sumRange);
 
+    if (min.length < 0) {
+        console.log('ERROR');
+    }
 
     for (let i = min; i <= max; i++) {
-        if (i > 0 || Number.isInteger(i)) {
-            sum += i;
-        } else {
-            console.log("ERROR");
-        }
+        sum += i;
     }
     console.log(sum);
-};
+}
 
 sumAll(1, 4);
 sumAll(1, 4000);
