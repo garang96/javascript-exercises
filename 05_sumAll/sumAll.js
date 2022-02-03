@@ -1,18 +1,22 @@
-const sumAll = (...sumRange) => {
+const sumAll = (firstArg, secondArg) => {
     let sum = 0;
-    let min = Math.min(...sumRange);
-    let max = Math.max(...sumRange);
 
-    if (min.length < 0) {
-        console.log('ERROR');
+    if (typeof firstArg !== 'number' || typeof secondArg !== 'number') {
+        return 'ERROR';
+    } else if (firstArg < 0 || secondArg < 0) {
+        return 'ERROR';
+    } else if (firstArg > secondArg) {
+        for (let i = secondArg; i <= firstArg; i++) {
+            sum += i;
+        }
+    } else {
+        for (let i = firstArg; i <= secondArg; i++) {
+            sum += i;
+        }
     }
 
-    for (let i = min; i <= max; i++) {
-        sum += i;
-    }
-    console.log(sum);
+    return sum;
 }
-
 sumAll(1, 4);
 sumAll(1, 4000);
 sumAll(123, 1);
